@@ -38,10 +38,7 @@ public actor SwiftLogger: Workflow.Logger {
     public func log(_ event: LoggingEvent) async {
         logHandler.log(
             level: event.type.swiftLogLevel,
-            message: Logging.Logger.Message(
-                stringLiteral: (event.fact[.en] ?? event.fact.description)
-                    + " (" + event.effectuationIDStackDescription + ")"
-            ),
+            message: Logging.Logger.Message(stringLiteral: event.fact[.en] ?? event.fact.description),
             metadata: nil,
             source: event.itemPositionInfo ?? "?",
             file: event.itemInfo ?? "?",
