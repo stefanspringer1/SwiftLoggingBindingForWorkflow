@@ -39,7 +39,7 @@ public actor SwiftLogger: Workflow.Logger {
         logHandler.log(
             level: event.type.swiftLogLevel,
             message: Logging.Logger.Message(
-                stringLiteral: event.fact[.en] ?? event.fact.description
+                stringLiteral: (event.fact[.en] ?? event.fact.description)
                     + " (" + event.effectuationIDStackDescription + ")"
             ),
             metadata: nil,
