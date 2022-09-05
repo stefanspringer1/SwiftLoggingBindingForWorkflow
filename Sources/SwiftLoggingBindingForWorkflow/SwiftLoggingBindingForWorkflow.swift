@@ -30,7 +30,7 @@ public actor SwiftLogger: Workflow.Logger {
     let logHandler: Logging.LogHandler
     let closeFunction: (() -> ())?
     
-    init(logHandler: Logging.LogHandler, closeFunction: (() -> ())? = nil) {
+    public init(logHandler: Logging.LogHandler, closeFunction: (() -> ())? = nil) {
         self.logHandler = logHandler
         self.closeFunction = closeFunction
     }
