@@ -25,7 +25,7 @@ public extension MessageType {
 }
 
 /// A logger using a logger according to swift-log in the background.
-public actor SwiftLogger: Workflow.Logger {
+public class SwiftLogger: Workflow.Logger {
     
     let logHandler: Logging.LogHandler
     let closeFunction: (() -> ())?
@@ -35,7 +35,7 @@ public actor SwiftLogger: Workflow.Logger {
         self.closeFunction = closeFunction
     }
     
-    public func log(_ event: LoggingEvent) async {
+    public func log(_ event: LoggingEvent) {
         logHandler.log(
             level: event.type.swiftLogLevel,
             message: Logging.Logger.Message(stringLiteral: event.fact[.en] ?? event.fact.description),
@@ -46,7 +46,7 @@ public actor SwiftLogger: Workflow.Logger {
             line: 0)
     }
     
-    public func close() async throws {
+    public func close() throws {
         closeFunction?()
     }
     

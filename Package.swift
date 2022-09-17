@@ -13,7 +13,7 @@ let package = Package(
     ],
     dependencies: [
         // Dependencies declare other packages that this package depends on.
-        .package(url: "https://github.com/stefanspringer1/SwiftWorkflow", from: "0.0.34"),
+        .package(url: "https://github.com/stefanspringer1/SwiftWorkflow", from: "0.0.105"),
         .package(url: "https://github.com/apple/swift-log.git", from: "1.4.4"),
     ],
     targets: [
